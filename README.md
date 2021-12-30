@@ -29,7 +29,6 @@ I solved this problem using the following steps:
   Fork the repository
   Open the terminal and write git clone https://github.com/<UserName>/Assignment-Airtribe.git
   cd Assignment-Airtribe
-  Create a .env file and copy all the data present in the .env.example file to it.
   npm install
   npm start
   </code>
