@@ -1,20 +1,31 @@
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
+const Question = require("../model/question");
 const csvWriter = createCsvWriter({
   path: "questionList.csv",
   header: [
     { id: "name", title: "NAME" },
     { id: "url", title: "URL" },
-    { id: "upvotes", title: "Total Upvotes" },
-    { id: "answers", title: "Total Answers" },
-    { id: "reference", title: "Reference" },
+    { id: "upvotesCount", title: "Total Upvotes" },
+    { id: "totalAnswers", title: "Total Answers" },
+    { id: "referenceCount", title: "Reference" },
   ],
 });
 
-exports.generateCsv = async (data) => {
+const generateCsv = async (data) => {
   try {
     await csvWriter.writeRecords(data);
     console.log("CSV File is Ready");
   } catch (error) {
     console.log("Can't create a CSV", error);
   }
+};
+
+exports.saveCsv = async () => {
+  try {
+    const questionList = await Question.find();
+    await generateCsv(questionList);
+  } catch (error) {
+    process.exit(1);
+  }
+  process.exit(1);
 };

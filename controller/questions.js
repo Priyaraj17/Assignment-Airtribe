@@ -1,15 +1,16 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const Question = require("../model/question");
+const { name, questionURL, ans, n_ans, upvotes } = require("../HTMLAttributes");
 
 exports.fetchQuestions = async (page, pushArray) => {
   try {
     const html = await axios.get(
-      `${process.env.HOST_QUESTION_ENDPOINT}?&page=${page}`
+      `${process.env.HOST_QUESTION_ENDPOINT}${page}`
     );
     const $ = cheerio.load(html.data);
-    const questions = $("h3>a.question-hyperlink")
-      .map((i, link) => `${process.env.HOST_URL}${link.attribs.href}`)
+    const questions = $(`${questionURL}`)
+      .map((i, link) => `${process.env.URL}${link.attribs.href}`)
       .get();
     pushArray(questions);
   } catch (error) {
@@ -23,11 +24,13 @@ exports.questionData = async (url, page) => {
     data.url = url;
     const questionData = await axios.get(url);
     const $ = cheerio.load(questionData.data);
-    const questionName = $("h1[itemprop=name]").text();
-    const numUpvotes = $(".js-vote-count").text().trim().split(" ")[0].trim();
-    let numAnswers = $("div.no-answers").text().trim().split(" ")[0].trim();
+    const questionName = $(`${name}`).text();
+    const numUpvotes = $(`${upvotes}`).text().trim().split(" ")[0].trim();
+    let numAnswers = $(`${n_ans}`).text().trim().split(" ")[0].trim();
     if (numAnswers.length === 0) {
-      numAnswers = $("span[itemprop=answerCount]").text();
+      numAnswers = $(`${ans}`).text();
+    } else {
+      numAnswers = 0;
     }
     data.name = questionName;
     data.upvotesCount = numUpvotes;
