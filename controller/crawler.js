@@ -13,7 +13,7 @@ const crawlData = async () => {
   const currentQuestion = await Question.findOne({ url });
 
   if (!currentQuestion) {
-    await questionData(url, num);
+    await questionData(url, num, pushArray);
   } else {
     currentQuestion.totalReferenceCount += 1;
     await currentQuestion.save();

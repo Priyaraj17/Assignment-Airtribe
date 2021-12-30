@@ -1,7 +1,14 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const Question = require("../model/question");
-const { name, questionURL, ans, n_ans, upvotes } = require("../HTMLAttributes");
+const {
+  name,
+  questionURL,
+  ans,
+  n_ans,
+  upvotes,
+  related,
+} = require("../HTMLAttributes");
 
 exports.fetchQuestions = async (page, pushArray) => {
   try {
@@ -18,7 +25,7 @@ exports.fetchQuestions = async (page, pushArray) => {
   }
 };
 
-exports.questionData = async (url, page) => {
+exports.questionData = async (url, page, pushArray) => {
   try {
     const data = {};
     data.url = url;
@@ -36,6 +43,12 @@ exports.questionData = async (url, page) => {
     data.upvotesCount = numUpvotes;
     data.totalAnswers = numAnswers;
     data.referenceCount = 1;
+    const relatedQuestions = $(`${related}`)
+      .map((i, link) => `${process.env.URL}${link.attribs.href}`)
+      .get();
+    if (relatedQuestions.length > 0) {
+      pushArray(relatedQuestions);
+    }
     await Question.create(data);
   } catch (error) {
     throw error;
