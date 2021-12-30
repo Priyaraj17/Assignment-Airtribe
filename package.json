@@ -1,0 +1,20 @@
+{
+  "name": "stackoverflow_crawler",
+  "version": "1.0.0",
+  "description": "Recursively crawl StackOverflow questions using Node.js based crawler, harvest all questions on Stack Overflow and store them in a database of your choice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Priyaraj",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
