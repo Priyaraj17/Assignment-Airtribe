@@ -12,9 +12,7 @@ const {
 
 exports.fetchQuestions = async (page, pushArray) => {
   try {
-    const html = await axios.get(
-      `${process.env.HOST_QUESTION_ENDPOINT}${page}`
-    );
+    const html = await axios.get(`${process.env.QUESTION_WEBSITE}${page}`);
     const $ = cheerio.load(html.data);
     const questions = $(`${questionURL}`)
       .map((i, link) => `${process.env.URL}${link.attribs.href}`)

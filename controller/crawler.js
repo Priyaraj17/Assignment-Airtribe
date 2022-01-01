@@ -9,7 +9,7 @@ const pushArray = (arr) => {
 
 const crawlData = async () => {
   const url = questionList.shift();
-  console.log("URL: ", url);
+  console.log("Current URL: ", url);
   const currentQuestion = await Question.findOne({ url });
 
   if (!currentQuestion) {
