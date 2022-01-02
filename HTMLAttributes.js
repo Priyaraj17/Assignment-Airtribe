@@ -4,5 +4,4 @@ module.exports = {
   n_ans: "div.no-answers",
   ans: "span[itemprop=answerCount]",
   questionURL: "h3>a.question-hyperlink",
-  related: "div>a.question-hyperlink",
 };

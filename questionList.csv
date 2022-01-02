@@ -217,3 +217,6 @@ Error in Django -- if max_value is not None and max_value < 0.: TypeError: '<' n
 bugs when adding link in Draft js WYSIWYG,https://stackoverflow.com/questions/70549802/bugs-when-adding-link-in-draft-js-wysiwyg,0,0,1
 Handling special characters in bash script,https://stackoverflow.com/questions/70549800/handling-special-characters-in-bash-script,0,0,1
 how do I make a method that accepts a list of any type [c#],https://stackoverflow.com/questions/70549799/how-do-i-make-a-method-that-accepts-a-list-of-any-type-c,1,1,1
+wrote a React code snippet to implement conditional rendering and am not able to update the state of {Left} and {Right},https://stackoverflow.com/questions/70554693/wrote-a-react-code-snippet-to-implement-conditional-rendering-and-am-not-able-to,0,0,1
+How to enable an AppBar search by default on Flutter?,https://stackoverflow.com/questions/70554692/how-to-enable-an-appbar-search-by-default-on-flutter,0,0,1
+there are 2 function in modelView both are impacting the textview . how to run only one in MVVM?,https://stackoverflow.com/questions/70554691/there-are-2-function-in-modelview-both-are-impacting-the-textview-how-to-run-o,0,0,1
