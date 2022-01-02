@@ -20,7 +20,7 @@ Things you should keep in mind:
 I solved this problem using the following steps:
 <ul>
 <li> I pushed all the questions on the first page in an array. </li>
-<li> Then, I iterated through the array usinf recursion and popped the urls from the array and saved it into the database along with it's url, number of upvotes, total answers and so on.</li>
+<li> Then, I iterated through the array recursively and popped the urls from the array and saved it into the database along with it's url, number of upvotes, total answers and the name of the question.</li>
 <li> When the script is terminated, all the questions which are stored in the database is saved into a CSV File. </li>
 </ul>
 
@@ -30,6 +30,7 @@ I solved this problem using the following steps:
   Open the terminal and write git clone https://github.com/<UserName>/Assignment-Airtribe.git
   cd Assignment-Airtribe
   npm install
+  create a .env file and copy the contents of config.env in it.
   npm start
   </code>
 </pre>
